@@ -1,6 +1,11 @@
 # SignIn-SinUp-Screens
 This respository contains the Front and back-end you need for a sign in and sin up screen
 
+-------------------------------------- Sign in screen ------------------------------------
+![SignInScreen](https://user-images.githubusercontent.com/66442918/126897540-f023301c-ce33-4979-8eb2-cb0d3ba68e73.PNG)
+
+-------------------------------------- Sign up screen ------------------------------------
+![SignUpScreen](https://user-images.githubusercontent.com/66442918/126897546-f056737b-d2d8-45fb-a75d-8700db851f08.PNG)
 -------------------------------------- Installtion guide ---------------------------------
 
   1. Clone the repository to your local machiene.

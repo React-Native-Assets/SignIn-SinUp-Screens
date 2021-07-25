@@ -33,7 +33,7 @@ function SignUpScreen(props) {
       setMonthOfBirth(currentDate.getUTCMonth() + 1)
       setDateOfBirth(currentDate.getUTCDate())
       setYearOfBirth(currentDate.getUTCFullYear())
-      console.log((currentDate.getUTCMonth() + 1)+"-"+(currentDate.getUTCDate())+"-"+(currentDate.getUTCFullYear()))
+      // console.log((currentDate.getUTCMonth() + 1)+"-"+(currentDate.getUTCDate())+"-"+(currentDate.getUTCFullYear()))
     };
 
     const showMode = (currentMode) => 
@@ -189,12 +189,12 @@ function SignUpScreen(props) {
 
 const styles = StyleSheet.create({
     container:{
-        flex:1
+        flex:1,
+        backgroundColor:'white'
     },
     row1:{
         flexDirection:'row',
         marginTop:screen.height*0.04
-        
     },
     firstName:{
         width:screen.width*0.5

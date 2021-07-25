@@ -1,10 +1,12 @@
 import React,{useState} from 'react';
-import {View,ScrollView,StyleSheet,Dimensions,Button} from 'react-native'
+import {View,ScrollView,StyleSheet,Dimensions,Button, Text} from 'react-native'
 import TextInput_Custom from '../TextInput/TextInput_Custom'
 import DateTimePicker from '@react-native-community/datetimepicker';
+import SignUpButton from './SignUpButton';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 const screen = Dimensions.get('window');
-const radio_props = [
+const radio_props = 
+  [
     {label: 'Male', value: 0 },
     {label: 'Female', value: 1 }
   ];
@@ -29,16 +31,18 @@ function SignUpScreen(props) {
       setShow(Platform.OS === 'ios');
       setDate(currentDate);
     };
-  
-    const showMode = (currentMode) => {
+
+    const showMode = (currentMode) => 
+    {
       setShow(true);
       setMode(currentMode);
     };
   
-    const showDatepicker = () => {
+    const showDatepicker = () => 
+    {
       showMode('date');
     };
-  
+
     const showTimepicker = () => {
       showMode('time');
     };
@@ -67,7 +71,7 @@ function SignUpScreen(props) {
                   />
             </View>
 
-           </View>
+            </View>
            
                           {/* Row 2 */}
             <View style={styles.row2}>
@@ -83,8 +87,9 @@ function SignUpScreen(props) {
 
                           {/* Row 3 */}
             <View style={styles.row3}>
+
             <View style={styles.phoneNumber}>
-                {/* First Name */}
+                {/* Mobile number */}
                 <TextInput_Custom
                  labelValue="Mobile Number"
                  handelTextChange={(value)=>{setPhoneNumber(value)}}
@@ -92,6 +97,20 @@ function SignUpScreen(props) {
             </View>
 
             </View>
+
+               {/* Row 6 */}
+               <View style={styles.row6}>
+              
+              <View style={styles.address}>
+                  {/* Mobile number */}
+                  <TextInput_Custom
+                   labelValue="Address"
+                   handelTextChange={(value)=>{setAddress(value)}}
+                   />            
+              </View>
+  
+              </View>
+  
 
             {/* Row 5 */}
             <View style={styles.row5}> 
@@ -114,10 +133,12 @@ function SignUpScreen(props) {
             
             </View>
 
-          
-            
             {/* Row 4 */}
             <View style={styles.row4}> 
+            {/* Gender Selection */}
+
+                <View style={styles.genderRadioContainer}>
+               
                 <RadioForm
                      radio_props={radio_props}
                      initial={0}
@@ -127,10 +148,10 @@ function SignUpScreen(props) {
                      animation={true}
                      onPress={(value) => {console.log(value)}}
                 />
-
-                <View>
-                    <Button onPress={showDatepicker} title="Date of birth" />
                 </View>
+
+                <View style={styles.dateOfBirthContainer}>
+                  <Button onPress={showDatepicker} title="Date of birth" />
                 {/* <View>
                  <Button onPress={showTimepicker} title="Show time picker!" />
                 </View> */}
@@ -145,8 +166,16 @@ function SignUpScreen(props) {
                  />
                 )}
 
+                </View>
 
-            </View>
+                </View>
+                 {/* Row 7 */}
+                 <View style={styles.row7}>
+                      {/* Sin up button */}
+                      <SignUpButton/>
+                 </View>
+                
+            
            
            </ScrollView>
 
@@ -184,15 +213,23 @@ const styles = StyleSheet.create({
         width:screen.width*1
     },
     row4:{
-        marginTop:screen.height*0.02,
-        borderWidth:0.5,
-        padding:10,
-        width:screen.width*0.65,
-        alignItems:'center',
-        marginLeft:screen.width*0.15,
-        borderRadius:15,
-       
+      flexDirection:'row',
+      marginTop:screen.height*0.02,
+
+      alignItems:'center'
     },
+    dateOfBirthContainer:{
+        width:screen.width*0.4,
+        marginRight:screen.width*0.05
+    }
+    ,
+    genderRadioContainer:{
+      flex:1,
+      
+      alignItems:'center',
+      justifyContent:'center'
+    }
+    ,
     row5:{
         flexDirection:'row',
         marginTop:screen.height*0.01
@@ -205,6 +242,19 @@ const styles = StyleSheet.create({
     passwrod:{
         width:screen.width*0.5
     },
-})
+    row6:{
+      flexDirection:'row',
+      marginTop:screen.height*0.01
+    },
+    address:{
+      width:screen.width
+    },
+    row7:{
+      marginTop:screen.height*0.01,
+      alignItems:"center"
 
+    }
+    ,
+    
+})
 export default SignUpScreen;

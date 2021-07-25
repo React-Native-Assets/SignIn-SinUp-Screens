@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     },
     lableInputFieldContainer:{
         width:'100%',
-        height:45,
+        height:40,
         borderColor:"black",
         borderWidth:1,
         borderRadius:20

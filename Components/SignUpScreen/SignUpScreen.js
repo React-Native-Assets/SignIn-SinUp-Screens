@@ -19,9 +19,9 @@ function SignUpScreen(props) {
     const [phoneNumber,setPhoneNumber]=useState();
     const [address,setAddress]=useState();
     const [gender,setGender]=useState();
-    const [dateOfBirth,setDateOfBirth]=useState();
-    const [monthOfBirth,setMonthOfBirth]=useState();
-    const [yearOfBirth,setYearOfBirth]=useState();
+    const [dateOfBirth,setDateOfBirth]=useState('');
+    const [monthOfBirth,setMonthOfBirth]=useState('');
+    const [yearOfBirth,setYearOfBirth]=useState('');
     const [date, setDate] = useState(new Date(1598051730000));
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
@@ -30,6 +30,10 @@ function SignUpScreen(props) {
       const currentDate = selectedDate || date;
       setShow(Platform.OS === 'ios');
       setDate(currentDate);
+      setMonthOfBirth(currentDate.getUTCMonth() + 1)
+      setDateOfBirth(currentDate.getUTCDate())
+      setYearOfBirth(currentDate.getUTCFullYear())
+      console.log((currentDate.getUTCMonth() + 1)+"-"+(currentDate.getUTCDate())+"-"+(currentDate.getUTCFullYear()))
     };
 
     const showMode = (currentMode) => 
@@ -190,6 +194,7 @@ const styles = StyleSheet.create({
     row1:{
         flexDirection:'row',
         marginTop:screen.height*0.04
+        
     },
     firstName:{
         width:screen.width*0.5

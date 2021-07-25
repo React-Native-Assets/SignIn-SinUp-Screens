@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     }
     ,
     iconOneStyle:{
-        flex:1,
+      
         borderRadius:30,
         alignItems:'center'
     },
